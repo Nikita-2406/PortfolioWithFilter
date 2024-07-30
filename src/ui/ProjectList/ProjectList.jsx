@@ -1,10 +1,7 @@
 export const ProjectList = (props) => {
   const portfolio = props.projects 
-  let line = []
-  for (const iterator of portfolio) {
-    line.push(<img src={iterator.img} className="picture" />)
-  }
-  console.log(line)
+  let line = portfolio.map(elem => <img src={elem.img} className="picture" />)
+  
   return (<>
     {line}
   </>)

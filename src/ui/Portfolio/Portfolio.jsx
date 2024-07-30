@@ -3,8 +3,8 @@ import { ProjectList } from "../ProjectList/ProjectList";
 import { Toolbar } from "../Toolbar/Toolbar"
 
 export const Portfolio = () => {
-  let ready_portfolio_list = []
-  const portfolio_list = [{
+  let readyPortfolioList = []
+  const portfolioList = [{
     img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
     category: "Business Cards"
   }, {
@@ -57,24 +57,20 @@ export const Portfolio = () => {
     category: "Flayers"
   }]
 
-  const [select_btn, setSelectBtn] = useState("All")
-  if (select_btn == "All") {
-    ready_portfolio_list = portfolio_list
+  const [selectBtn, setSelectBtn] = useState("All")
+  if (selectBtn == "All") {
+    readyPortfolioList = portfolioList
   } else {
-    for (const post of portfolio_list) {
-      if (post.category == select_btn) {
-        ready_portfolio_list.push(post)
-      }
-    }
+    readyPortfolioList = portfolioList.filter(post => post.category == selectBtn)
   }
-  
+    
   return (
     <>
       <Toolbar
         filters={["All", "Websites", "Flayers", "Business Cards"]}
-        selected={select_btn}
+        selected={selectBtn}
         onSelectFilter={setSelectBtn}/>
-      <ProjectList projects={ready_portfolio_list} />
+      <ProjectList projects={readyPortfolioList} />
     </>
     
   )

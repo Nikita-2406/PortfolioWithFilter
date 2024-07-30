@@ -5,7 +5,7 @@ export const Toolbar = (props) => {
 
   const handler = (e) => {
     onSelectFilter(e.target.textContent)
-    console.log(document.querySelector(`[name="${selected}"]`).classList.remove("checked"))
+    document.querySelector(`[name="${selected}"]`).classList.remove("checked")
     e.target.classList.add("checked")
   }
 
