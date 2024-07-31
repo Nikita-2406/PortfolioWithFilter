@@ -57,7 +57,12 @@ export const Portfolio = () => {
     category: "Flayers"
   }]
 
+  // const initState =  <button class="toolbar_button checked" name="All">All</button>0
+  // const initState = document.querySelector()
+  // console.log(initState)
   const [selectBtn, setSelectBtn] = useState("All")
+  // console.log(selectBtn)
+  // selectBtn.click
   if (selectBtn == "All") {
     readyPortfolioList = portfolioList
   } else {

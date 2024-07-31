@@ -1,9 +1,13 @@
-export const Toolbar = (props) => {
-  const filters = props.filters
-  const selected = props.selected
-  const onSelectFilter = props.onSelectFilter
+export const Toolbar = ({filters, selected, onSelectFilter}) => {
 
   const handler = (e) => {
+    
+    onSelectFilter(e.target)
+    // console.log(e)
+    // if (selected === undefined) {
+
+    // }
+    // selected.classList.remove("checked")
     onSelectFilter(e.target.textContent)
     document.querySelector(`[name="${selected}"]`).classList.remove("checked")
     e.target.classList.add("checked")
