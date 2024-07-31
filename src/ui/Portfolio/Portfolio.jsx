@@ -57,25 +57,15 @@ export const Portfolio = () => {
     category: "Flayers"
   }]
 
-  // const initState =  <button class="toolbar_button checked" name="All">All</button>0
-  // const initState = document.querySelector()
-  // console.log(initState)
   const [selectBtn, setSelectBtn] = useState("All")
-  // console.log(selectBtn)
-  // selectBtn.click
-  if (selectBtn == "All") {
-    readyPortfolioList = portfolioList
-  } else {
-    readyPortfolioList = portfolioList.filter(post => post.category == selectBtn)
-  }
-    
+
   return (
     <>
       <Toolbar
         filters={["All", "Websites", "Flayers", "Business Cards"]}
         selected={selectBtn}
         onSelectFilter={setSelectBtn}/>
-      <ProjectList projects={readyPortfolioList} />
+      <ProjectList projects={selectBtn == "All" ? portfolioList : portfolioList.filter(post => post.category == selectBtn)} />
     </>
     
   )
